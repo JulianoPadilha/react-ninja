@@ -12,8 +12,17 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
   <script type="text/babel">
+    // Formato utlizando quando estamos trabalhando com EcmaScript 5
+    const Title = React.createClass({
+      render: () => (
+        <h1>
+          <span>Hello World Title</span>
+        </h1>
+      )
+    });
+
     ReactDOM.render(
-      <h1>Hello World</h1>, 
+      <Title />, 
       document.querySelector('#app')
     );
   </script>
