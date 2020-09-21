@@ -1,4 +1,6 @@
 // Webpack vai ler um arquivo fonte e gerar um bundle. Então dizemos para o webpack como ele vai criar e onde ele vai salvar esse arquivo
+
+// Mais sobre use strict: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode 
 'use strict';
 
 // Importa o path do Node
