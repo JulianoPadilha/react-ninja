@@ -3,7 +3,6 @@
 // Mais sobre use strict: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode 
 'use strict';
 
-const { Server } = require('http');
 // Importa o path do Node
 const path = require('path');
 
@@ -21,5 +20,14 @@ module.exports  = {
     //  O publicPath é o local onde o webpack-dev-server ficar assistindo as nossas alterações nos arquivos de desenvolvimento
     // Quando exeutamos o webpack-dev-server, ele não vai gerar um arquivo físico, ele gera um arquivo virtual em memória e o publicPath diz onde esse arquivo vai residir
      publicPath: '/static/'
+  },
+  module: {
+    // Cada loader diz para o Webpack o que ele deve fazer com cada tipo de arquivo
+    loaders: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      include: /src/,
+      loader: 'babel'
+    }]
   }
 }

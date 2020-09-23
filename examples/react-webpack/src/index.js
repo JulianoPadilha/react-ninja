@@ -1,11 +1,11 @@
 'use strict';
 
-const React = require('react');
-const ReactDOM = require('react-dom'); 
+import React from 'react';
+import { render } from 'react-dom';
 
-const Title = require('./app');
+import Title from './app';
 
-ReactDOM.render(
+render(
   React.createElement(Title),
   // Por que estamos usando um atributo data e não um id, como normalmente?
   // O problema de utilizar o id é que cada vez que você utiliza um id para um elemento HTML, ele gera uma variável global em window
