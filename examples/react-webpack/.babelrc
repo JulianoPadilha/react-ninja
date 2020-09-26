@@ -1,3 +1,4 @@
 {
-  "presets": ["es2015", "stage-0"]
+  // Para quer o Babel interprete o JSX, intalamos o preset babel-preset-react e adicionamos ele na lista de presets
+  "presets": ["es2015", "stage-0", "react"]
 }
