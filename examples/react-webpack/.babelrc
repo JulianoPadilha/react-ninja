@@ -1,4 +1,6 @@
 {
   // Para quer o Babel interprete o JSX, intalamos o preset babel-preset-react e adicionamos ele na lista de presets
-  "presets": ["es2015", "stage-0", "react"]
+  "presets": ["es2015", "stage-0", "react"],
+  // Diz para o babel que ele deve interpretar os arquivos e recarregar a página sem a necessidade de reload, além de ter a preferências de plugins do babel para fazer o loader funcionar perfeitamente
+  "plugins": ["react-hot-loader/babel"]
 }
