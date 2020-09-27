@@ -1,14 +1,16 @@
 // Webpack vai ler um arquivo fonte e gerar um bundle. Então dizemos para o webpack como ele vai criar e onde ele vai salvar esse arquivo
 
-// Mais sobre use strict: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode 
-'use strict';
+// Mais sobre use strict: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
+'use strict'
 
 // Importa o path do Node
-const path = require('path');
-const webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
+// Modulo para validar as configs do webpack e ajudar no debug de erros de webpack
+const validate = require('webpack-validator')
 
 // Exportamos um objeto utilizando o module.exports do CommonJS para o webpack fazer a leitura do nosso arquivo e gerar o bundle
-module.exports  = {
+module.exports = validate({
   // Diz para o webpack gerar um mapa do arquivo original. Muito útil para debugar o código.
   devtool: 'source-map',
   // Entrada com o caminho do nosso arquivo principal
@@ -35,6 +37,13 @@ module.exports  = {
     new webpack.HotModuleReplacementPlugin()
   ],
   module: {
+    // São loaders carregados antes de carregar o Babel. Funcionanm como loaders
+    preLoaders: [{
+      test: /\.js$/,
+      exclude: /node_modules/,
+      include: /src/,
+      loader: 'standard'
+    }],
     // Cada loader diz para o Webpack o que ele deve fazer com cada tipo de arquivo
     loaders: [{
       test: /\.js$/,
@@ -43,4 +52,4 @@ module.exports  = {
       loader: 'babel'
     }]
   }
-}
+})
