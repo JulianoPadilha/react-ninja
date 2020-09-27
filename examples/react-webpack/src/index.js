@@ -1,9 +1,9 @@
-'use strict';
+'use strict'
 
-import React from 'react';
-import { render } from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
-import App from './app';
+import React from 'react'
+import { render } from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
+import App from './app'
 
 const renderApp = (NextApp) => {
   render(
@@ -17,17 +17,17 @@ const renderApp = (NextApp) => {
     // Por que estamos usando um atributo data e não um id, como normalmente?
     // O problema de utilizar o id é que cada vez que você utiliza um id para um elemento HTML, ele gera uma variável global em window
     document.querySelector('[data-js="app"]')
-  );
+  )
 }
 
-renderApp(App);
+renderApp(App)
 
 // O hot-loader também expõe um objeto 'module'. Se esse objeto existir sabemos que o hot loader está habilitado. E não devemos usar o hot-loader em produção
 if (module.hot) {
   module.hot.accept('./app', () => {
     // Sempre que o ./app for alterado ou algum arquivop interno dele for alterado, nós fazemos um require novamente no nosso app para ser renderizado
     // Sempre que for importar um módulo do ES Modules para CommonJS, precisamos acrescentar o default no final
-    const NextApp = require('./app').default;
-    renderApp(NextApp);
-  });
+    const NextApp = require('./app').default
+    renderApp(NextApp)
+  })
 }
