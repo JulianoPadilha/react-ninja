@@ -1,19 +1,28 @@
 'use strict'
 
 import React, { Component } from 'react'
+import Button from './button'
+import Square from './square'
 
 class App extends Component {
-  constructor() {
-    // O constructor sempre vai precisar do super quando extendido o Component
+  constructor () {
     super()
     this.state = {
-      text: 'Juliano'
+      color: 'green'
     }
   }
   render () {
     return (
-      <div className='container' onClick={() => this.setState({ text: 'Outro nome' })}>
-        {this.state.text}
+      <div>
+        <Square color={this.state.color} />
+        {['green', 'red', 'blue'].map((color) => (
+          <Button
+            key={color}
+            handleClick={() => this.setState({ color })}
+          >
+            {color}
+          </Button>
+        ))}
       </div>
     )
   }
